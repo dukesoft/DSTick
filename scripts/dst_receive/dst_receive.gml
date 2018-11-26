@@ -8,7 +8,7 @@ if (__dst_main.debug) {
 	if (!__dst_is_queue_object(dst_queue)) return false;
 }
 
-if (ds_queue_size(dst_queue.queue) <= 0) {
+if (ds_queue_empty(dst_queue.queue)) {
 	return false;
 }
 
