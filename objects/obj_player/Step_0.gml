@@ -58,8 +58,13 @@ while (false != msg) {
 			ds_list_clear(pending_inputs);
 		}
 	} else {
-		otherp_x = msg[e_state_packet.x];
-		otherp_y = msg[e_state_packet.y];
+		if (dst_entity_interpolation) {
+			
+		} else {
+			otherp_x = msg[e_state_packet.x];
+			otherp_y = msg[e_state_packet.y];
+		}
+		
 	}
 	
 	msg = dst_receive(dst_in_queue);
