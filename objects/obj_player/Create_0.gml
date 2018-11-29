@@ -1,4 +1,4 @@
-image_blend = c_lime;
+image_blend = c_green;
 dst_out_queue = dst_queue_create_test(250);
 dst_in_queue =  dst_queue_create_test(250);
 
@@ -16,6 +16,9 @@ dst_input_sequence_number = 0;
 update_rate = 50;
 
 pending_inputs = ds_list_create();
+
+otherp_inputs = ds_list_create();
+
 
 now_ts = current_time;
 last_ts = current_time;

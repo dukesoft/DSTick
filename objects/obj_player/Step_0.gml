@@ -53,13 +53,12 @@ while (false != msg) {
 					i++;
 				}
 			}
-			
 		} else {
 			ds_list_clear(pending_inputs);
 		}
 	} else {
 		if (dst_entity_interpolation) {
-			
+			ds_list_add(otherp_inputs, [current_time, msg]);
 		} else {
 			otherp_x = msg[e_state_packet.x];
 			otherp_y = msg[e_state_packet.y];
@@ -69,3 +68,36 @@ while (false != msg) {
 	
 	msg = dst_receive(dst_in_queue);
 }
+
+if (dst_entity_interpolation && ds_list_size(otherp_inputs) >= 2) {
+	var newest = otherp_inputs[| 0];
+	var render_timestamp = current_time - 1000/obj_server.server_fps;
+	while (ds_list_size(otherp_inputs) > 2 && newest[0] <= render_timestamp) {
+		ds_list_delete(otherp_inputs, 0);
+		//show_debug_message("Oldest: " + string(otherp_inputs[| 0]));
+		//show_debug_message("Newest: " + string(otherp_inputs[| 1]));
+		newest = otherp_inputs[| 0];
+	}
+	
+	var oldest = otherp_inputs[| 1];
+	
+	var newestmsg = newest[1];
+	var oldestmsg = oldest[1];
+	
+	var x0 = oldestmsg[e_state_packet.x];
+	var x1 = newestmsg[e_state_packet.x];
+	
+	var y0 = oldestmsg[e_state_packet.y];
+	var y1 = newestmsg[e_state_packet.y];
+	
+	var t0 = oldest[0];
+	var t1 = newest[0];
+	
+	otherp_x = x0 + (x1 - x0) * (render_timestamp - t0) / (t1-t0);
+	otherp_y = y0 + (y1 - y0) * (render_timestamp - t0) / (t1-t0);
+	
+	show_debug_message("X0: " + string(x0) + ", X1: " + string(x1) + " | " + string(render_timestamp) + " - " + string(t0) + " ("+string(render_timestamp - t0)+") / "+string(t1)+"/"+string(t0)+" ("+string(t1-t0)+") ["+string((render_timestamp - t0) / (t1-t0))+"]");
+	
+}
+
+show_debug_message("Size: " + string(ds_list_size(otherp_inputs)));

@@ -4,6 +4,6 @@ draw_text(50, ystart+64, "Queue size: " + string(ds_queue_size(dst_out_queue.que
 
 othercolor = c_red;
 if (image_blend == c_red) {
-	othercolor = c_lime;	
+	othercolor = c_green;	
 }
 draw_sprite_ext(sprite_index, 0, otherp_x, otherp_y+ystart, 1, 1, 0, othercolor, 1);
