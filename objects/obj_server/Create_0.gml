@@ -3,7 +3,7 @@ room_speed = 60;
 laststep = current_time;
 net_tick = 0;
 
-server_fps = 3;
+server_fps = 4;
 fps_timer = 0;
 
 //using hard variables for test scenario - no real networking.

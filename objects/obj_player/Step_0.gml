@@ -2,20 +2,31 @@ now_ts = current_time;
 dt_sec = (now_ts - last_ts);
 last_ts = now_ts;
 
-input[e_input.left] = keyboard_check(left);
-input[e_input.right] = keyboard_check(right);
-input[e_input.up] = keyboard_check(up);
-input[e_input.down] = keyboard_check(down);
+for (var i = 0; i < array_length_1d(inputs); i++) {
+	var ev = inputs[i];
+	
+	input[i] = keyboard_check(keybind[i]);
+	
+	if (previnput[i] != input[i]) {
+		previnput[i] = input[i];
+		timepressed[i] = 0;
+	}
+	
+	if (input[i]) {
+		timepressed[i] = delta_time/1000;
+		show_debug_message("PRESSING " + string(i) + " FOR " + string(timepressed[i]));
+	}
+}
 
 var input_packet = undefined;
 input_packet = [];
 input_packet[e_input_packet.timestamp] = now_ts;
 input_packet[e_input_packet.entity_id] = id;
 input_packet[e_input_packet.sequence] = dst_input_sequence_number;
-input_packet[e_input_packet.left] = input[e_input.left];
-input_packet[e_input_packet.right] = input[e_input.right];
-input_packet[e_input_packet.up] = input[e_input.up];
-input_packet[e_input_packet.down] = input[e_input.down];
+input_packet[e_input_packet.left] = timepressed[e_input.left];
+input_packet[e_input_packet.right] = timepressed[e_input.right];
+input_packet[e_input_packet.up] = timepressed[e_input.up];
+input_packet[e_input_packet.down] = timepressed[e_input.down];
 
 dst_input_sequence_number++;
 
@@ -96,8 +107,8 @@ if (dst_entity_interpolation && ds_list_size(otherp_inputs) >= 2) {
 	otherp_x = x0 + (x1 - x0) * (render_timestamp - t0) / (t1-t0);
 	otherp_y = y0 + (y1 - y0) * (render_timestamp - t0) / (t1-t0);
 	
-	show_debug_message("X0: " + string(x0) + ", X1: " + string(x1) + " | " + string(render_timestamp) + " - " + string(t0) + " ("+string(render_timestamp - t0)+") / "+string(t1)+"/"+string(t0)+" ("+string(t1-t0)+") ["+string((render_timestamp - t0) / (t1-t0))+"]");
+	//show_debug_message("X0: " + string(x0) + ", X1: " + string(x1) + " | " + string(render_timestamp) + " - " + string(t0) + " ("+string(render_timestamp - t0)+") / "+string(t1)+"/"+string(t0)+" ("+string(t1-t0)+") ["+string((render_timestamp - t0) / (t1-t0))+"]");
 	
 }
 
-show_debug_message("Size: " + string(ds_list_size(otherp_inputs)));
+//show_debug_message("Size: " + string(ds_list_size(otherp_inputs)));

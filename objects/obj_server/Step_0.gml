@@ -67,3 +67,6 @@ if (fps_timer > 1/server_fps) {
 /// send world state
 
 laststep = current_time;
+
+room_speed = 50+random(10);
+//room_speed = 15;
