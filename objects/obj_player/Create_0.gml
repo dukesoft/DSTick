@@ -2,6 +2,9 @@ image_blend = c_green;
 
 default_fps = 60;
 
+minx = 100;
+maxx = -100;
+
 dst_out_queue = dst_queue_create_test(250);
 dst_in_queue =  dst_queue_create_test(250);
 

@@ -10,6 +10,7 @@ if (fps_timer > 1/server_fps) {
 
 
 	/// Process inputs
+
 		// client 1
 		var msg = dst_receive(client_1.dst_out_queue);
 		while (false != msg) {
@@ -17,12 +18,12 @@ if (fps_timer > 1/server_fps) {
 				show_debug_message("SERVER Received a non-array message");
 				break;
 			}
-	
+			
 			var out = applyInput(msg, client_1_x, client_1_y);
 			client_1_x = out[0];
 			client_1_y = out[1];
 	
-			client_1_last_processed_input = msg[e_input_packet.sequence];
+			client_1_last_processed_message = msg;
 			msg = dst_receive(client_1.dst_out_queue);
 		}
 
@@ -38,7 +39,7 @@ if (fps_timer > 1/server_fps) {
 			client_2_x = out[0];
 			client_2_y = out[1];
 	
-			client_2_last_processed_input = msg[e_input_packet.sequence];
+			client_2_last_processed_message = msg;
 			msg = dst_receive(client_2.dst_out_queue);
 		}
 
@@ -46,7 +47,7 @@ if (fps_timer > 1/server_fps) {
 	var world_packet = [];
 	world_packet[e_state_packet.entity_id] = client_1.id;
 	world_packet[e_state_packet.timestamp] = current_time;
-	world_packet[e_state_packet.sequence] = client_1_last_processed_input;
+	world_packet[e_state_packet.sequence] = client_1_last_processed_message[e_input_packet.sequence];
 	world_packet[e_state_packet.x] = client_1_x;
 	world_packet[e_state_packet.y] = client_1_y;
 	dst_send(client_1.dst_in_queue, world_packet);
@@ -56,7 +57,7 @@ if (fps_timer > 1/server_fps) {
 	world_packet = [];
 	world_packet[e_state_packet.entity_id] = client_2.id;
 	world_packet[e_state_packet.timestamp] = current_time;
-	world_packet[e_state_packet.sequence] = client_2_last_processed_input;
+	world_packet[e_state_packet.sequence] = client_2_last_processed_message[e_input_packet.sequence];
 	world_packet[e_state_packet.x] = client_2_x;
 	world_packet[e_state_packet.y] = client_2_y;
 	dst_send(client_1.dst_in_queue, world_packet);
@@ -68,5 +69,5 @@ if (fps_timer > 1/server_fps) {
 
 laststep = current_time;
 
-room_speed = 50+random(10);
+room_speed = 20+random(120);
 //room_speed = 15;

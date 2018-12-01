@@ -14,7 +14,7 @@ var spdpersec = 60*spd; //240 / second
 var extx = spdpersec * ((input[e_input_packet.right]-input[e_input_packet.left]))/1000;
 var exty = spdpersec * ((input[e_input_packet.down]-input[e_input_packet.up]))/1000;
 
-show_debug_message("MOVING " + string(extx) + " PER FRAME");
+//show_debug_message("MOVING " + string(extx) + " PER FRAME");
 
 
 in_x += extx

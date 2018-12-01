@@ -7,6 +7,15 @@ for (var i = 0; i < array_length_1d(inputs); i++) {
 	
 	input[i] = keyboard_check(keybind[i]);
 	
+	if (object_index == obj_other_player) {
+		if (i == 1) {
+			input[i] = ! ((current_time/1000)%1);
+		}
+		if (i == 0) {
+			input[i] = !! ((current_time/1000)%1);	
+		}
+	}
+	
 	if (previnput[i] != input[i]) {
 		previnput[i] = input[i];
 		timepressed[i] = 0;
@@ -14,7 +23,7 @@ for (var i = 0; i < array_length_1d(inputs); i++) {
 	
 	if (input[i]) {
 		timepressed[i] = delta_time/1000;
-		show_debug_message("PRESSING " + string(i) + " FOR " + string(timepressed[i]));
+		//show_debug_message("PRESSING " + string(i) + " FOR " + string(timepressed[i]));
 	}
 }
 
@@ -25,7 +34,7 @@ input_packet[e_input_packet.entity_id] = id;
 input_packet[e_input_packet.sequence] = dst_input_sequence_number;
 input_packet[e_input_packet.left] = timepressed[e_input.left];
 input_packet[e_input_packet.right] = timepressed[e_input.right];
-input_packet[e_input_packet.up] = timepressed[e_input.up];
+input_packet[e_input_packet.up] = timepressed[e_input.up]*2;
 input_packet[e_input_packet.down] = timepressed[e_input.down];
 
 dst_input_sequence_number++;

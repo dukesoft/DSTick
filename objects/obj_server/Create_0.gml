@@ -3,15 +3,15 @@ room_speed = 60;
 laststep = current_time;
 net_tick = 0;
 
-server_fps = 4;
+server_fps = 20;
 fps_timer = 0;
 
 //using hard variables for test scenario - no real networking.
 client_1 = obj_player;
 client_2 = obj_other_player;
 
-client_1_last_processed_input = 0;
-client_2_last_processed_input = 0;
+client_1_last_processed_message = 0;
+client_2_last_processed_message = 0;
 
 //Spawn points
 client_1_x = 100;
