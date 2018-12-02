@@ -3,7 +3,7 @@ room_speed = 60;
 laststep = current_time;
 net_tick = 0;
 
-server_fps = 20;
+server_fps = 4;
 fps_timer = 0;
 
 //using hard variables for test scenario - no real networking.
@@ -19,3 +19,6 @@ client_1_y = 0;
 
 client_2_x = 100;
 client_2_y = 0;
+
+ticklog_client1 = ds_list_create();
+ticklog_client2 = ds_list_create();

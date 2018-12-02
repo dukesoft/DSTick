@@ -1,9 +1,11 @@
+tmp_otherplayer_tick = true;
+
 image_blend = c_green;
 
 default_fps = 60;
+interpolation_time = 0;
 
-minx = 100;
-maxx = -100;
+p2_moving = true;
 
 dst_out_queue = dst_queue_create_test(250);
 dst_in_queue =  dst_queue_create_test(250);

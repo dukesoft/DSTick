@@ -6,10 +6,11 @@ enum e_input {
 }
 
 enum e_input_packet {
-	left,
-	right,
+	interpolation_time,
+	duration,
+	forward,
+	side,
 	up,
-	down,
 	sequence,
 	entity_id,
 	timestamp

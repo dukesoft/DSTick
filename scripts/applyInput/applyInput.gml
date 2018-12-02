@@ -11,8 +11,10 @@ var spd = 4; // per frame at 60fps
 
 var spdpersec = 60*spd; //240 / second
 
-var extx = spdpersec * ((input[e_input_packet.right]-input[e_input_packet.left]))/1000;
-var exty = spdpersec * ((input[e_input_packet.down]-input[e_input_packet.up]))/1000;
+var spdforthispacket = (spdpersec/1000) * input[e_input_packet.duration];
+
+var extx = spdforthispacket * input[e_input_packet.side];
+var exty = spdforthispacket * input[e_input_packet.forward];
 
 //show_debug_message("MOVING " + string(extx) + " PER FRAME");
 
