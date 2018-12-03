@@ -29,7 +29,7 @@ if (fps_timer > 1/server_fps) {
 				msg[e_input_packet.duration] += pmaxtime;
 			}
 			
-			var out = applyInput(msg, client_1_x, client_1_y);
+			//var out = applyInput(msg, client_1_x, client_1_y);
 			client_1_x = out[0];
 			client_1_y = out[1];
 	
@@ -55,7 +55,7 @@ if (fps_timer > 1/server_fps) {
 			}
 		
 	
-			var out = applyInput(msg, client_2_x, client_2_y);
+			//var out = applyInput(msg, client_2_x, client_2_y);
 			client_2_x = out[0];
 			client_2_y = out[1];
 	
@@ -88,6 +88,9 @@ if (fps_timer > 1/server_fps) {
 	}
 	
 	laststep = current_time;
+	
+	ds_list_add(ticklog_client1, world_packet);
+	ds_list_add(ticklog_client2, world_packet);
 }
 
 /// send world state

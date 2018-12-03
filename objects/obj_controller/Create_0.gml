@@ -1,9 +1,3 @@
-enum e_input {
-	left,
-	right,
-	up,
-	down
-}
 
 enum e_input_packet {
 	interpolation_time,

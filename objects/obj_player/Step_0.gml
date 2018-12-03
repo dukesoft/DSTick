@@ -57,7 +57,7 @@ dst_send(dst_out_queue, input_packet);
 ds_list_add(pending_inputs, input_packet);
 
 if (dst_client_side_prediction) {
-	var out = applyInput(input_packet, x, y);
+	//var out = applyInput(input_packet, x, y);
 	x = out[0];
 	y = out[1];
 }
@@ -81,7 +81,7 @@ while (false != msg) {
 					interpolation_time = current_time - pinput[e_input_packet.timestamp];
 					ds_list_delete(pending_inputs, i);
 				} else {
-					var out = applyInput(pinput, x, y);
+					//var out = applyInput(pinput, x, y);
 					x = out[0];
 					y = out[1];
 					i++;
