@@ -42,9 +42,7 @@ while (msginfo != 254) { //end of packet
 							}
 							i++;
 						}
-					}
-					debug_log("Interp time: " + string(interpolation_time));
-					
+					}					
 				} else {
 					ds_list_clear(pending_inputs);
 				}
