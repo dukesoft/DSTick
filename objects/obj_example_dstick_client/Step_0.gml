@@ -19,7 +19,6 @@ var input_packet = [current_time, input_sequence, forward*msec_duration, side*ms
 ds_list_add(pending_inputs, input_packet);
 
 with (obj_example_dstick_player) {
-	totfw += input_packet[2];
 	applyInput([input_packet[2], input_packet[3], input_packet[4], input_packet[5]]);
 }
 

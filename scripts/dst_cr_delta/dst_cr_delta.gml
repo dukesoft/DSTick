@@ -29,31 +29,22 @@ while (msginfo != 254) { //end of packet
 				
 				if (obj_example_dstick_main.server_reconcilliation) {
 					var i = 0;
-					var appl = 0;
-					var del = 0;
 
 					while (i < ds_list_size(pending_inputs)) {
 						var pinput = pending_inputs[| i];
 						if (pinput[1] <= last_input_sequence) {
-							//interpolation_time = current_time - pinput[e_input_packet.timestamp];
 							// Already handled!
 							ds_list_delete(pending_inputs, i);
-							i--;
-							del++;
 						} else {
 							//Re apply the input because this one wasn't handled by the server yet
 							with (rplayer) {
 								applyInput([pinput[2], pinput[3], pinput[4], pinput[5]]);
 							}
-							appl++
+							i++;
 						}
-						
-						i++;
 					}
-					//debug_log("SET TO " + string(xx) + "," + string(yy));
-					debug_log("DEL " + string(del) + ", APPL"+string(appl));
-					//debug_log("NEW POS " + string(rplayer.x) + "," + string(rplayer.y));
-					//debug_log("PREDICTION DONE");
+					debug_log("Interp time: " + string(interpolation_time));
+					
 				} else {
 					ds_list_clear(pending_inputs);
 				}

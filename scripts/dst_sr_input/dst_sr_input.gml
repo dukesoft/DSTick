@@ -19,5 +19,3 @@ up = buffer_read(buffer, buffer_s16);
 actions = buffer_read(buffer, buffer_u8); // Up to 8 action buttons pressed
 var inpmsg = [forward, side, up, actions];
 applyInput(inpmsg);
-
-totfw += forward;

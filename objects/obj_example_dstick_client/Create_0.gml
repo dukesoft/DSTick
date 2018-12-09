@@ -27,7 +27,7 @@ ds_client = dsnet_client_create(
 dsnet_msghandle(dst_netmsg.s_main, dst_cr_main);
 dsnet_msghandle(dst_netmsg.s_delta, dst_cr_delta);
 
-inputrate = 8;
+inputrate = 2;
 input_timer = 0;
 input_frames = 0;
 input_sequence = 0;
