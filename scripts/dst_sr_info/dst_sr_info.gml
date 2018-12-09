@@ -8,8 +8,9 @@ hue = buffer_read(buffer, buffer_u8);
 
 // Send the ID of this player back
 dsnet_create_packet(dsnet_client, ex_netmsg.s_info);
-dsnet_write(dsnet_client, buffer_u8, dsnet_client.socket);
+dsnet_write(dsnet_client, buffer_u16, dsnet_client.socket);
 dsnet_write(dsnet_client, buffer_u8, obj_example_dstick_server.tickrate);
+dsnet_write(dsnet_client, buffer_u32, obj_example_dstick_server.tick);
 dsnet_send(dsnet_client);
 
 /*

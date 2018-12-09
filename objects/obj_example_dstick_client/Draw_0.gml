@@ -5,9 +5,9 @@ if (!connected) {
 draw_set_halign(fa_left);
 draw_set_color(c_white);
 draw_text(300, 55, 
-"Tickrate: " + string(tickrate) 
-+ "\n" + "Tick: " + string(tick)
-+ "\n" + "TTNT: " + string((1/tickrate) - tick_timer)
+"Inputrate: " + string(inputrate) 
++ "\n" + "Input Sequence: " + string(input_sequence)
++ "\n" + "TTNT: " + string((1/inputrate) - input_timer)
 + "\n" + "msec_interp: " + string(msec_interp)
 + "\n" + "Unprocessed inputs: " + string(ds_list_size(pending_inputs))
 );

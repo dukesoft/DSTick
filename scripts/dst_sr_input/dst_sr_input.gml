@@ -11,8 +11,8 @@ with (obj_example_dstick_server) {
 }
 
 msec_interp = buffer_read(buffer, buffer_u16);
-msec_duration = buffer_read(buffer, buffer_u16);
-sequence = buffer_read(buffer, buffer_u32);
+msec_duration = buffer_read(buffer, buffer_u16)/100;
+input_sequence = buffer_read(buffer, buffer_u32);
 forward = buffer_read(buffer, buffer_s16)/100;
 side = buffer_read(buffer, buffer_s16)/100;
 up = buffer_read(buffer, buffer_s16)/100;

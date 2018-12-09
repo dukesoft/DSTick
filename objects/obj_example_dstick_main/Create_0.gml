@@ -28,3 +28,5 @@ player_speed = 4; //4*room_speed pixels per frame (so usually 4*60 per second)
 randomize();
 
 initInput();
+
+server_reconcilliation = true;
