@@ -1,5 +1,5 @@
 ///@param input
-var input = argument0; //msec_duration, forward, side, up, actions
+var input = argument0; //forward, side, up, actions
 
 if (!is_array(input)) {
 	show_error("Input must be an array", true);
@@ -7,7 +7,7 @@ if (!is_array(input)) {
 
 var spdpersec = 60*obj_example_dstick_main.player_speed; //240 / second
 
-var spdforthispacket = (spdpersec/1000) * input[0];
+var spdforthispacket = (spdpersec/1000);
 
-y += spdforthispacket * input[1]; //forward
-x += spdforthispacket * input[2]; //side
+y += spdforthispacket * input[0]; //forward
+x += spdforthispacket * input[1]; //side

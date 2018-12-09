@@ -10,16 +10,17 @@ up = 0;
 actions = 0;
 
 tosend_msec_duration += msec_duration;
-tosend_forward += forward;
-tosend_side += side;
-tosend_up += up;
+tosend_forward += forward*msec_duration;
+tosend_side += side*msec_duration;
+tosend_up += up*msec_duration;
 tosend_actions = 0;
 
-var input_packet = [current_time, input_sequence, other.msec_duration, other.forward, other.side, other.up, other.actions];
+var input_packet = [current_time, input_sequence, forward*msec_duration, side*msec_duration, up*msec_duration, actions];
 ds_list_add(pending_inputs, input_packet);
 
 with (obj_example_dstick_player) {
-	applyInput([other.msec_duration, other.forward, other.side, other.up, other.actions]);
+	totfw += input_packet[2];
+	applyInput([input_packet[2], input_packet[3], input_packet[4], input_packet[5]]);
 }
 
 if (input_timer > 1/inputrate) {
@@ -28,12 +29,12 @@ if (input_timer > 1/inputrate) {
 	dsnet_write(ds_client, buffer_u16, msec_interp);
 	dsnet_write(ds_client, buffer_u16, tosend_msec_duration*100);
 	dsnet_write(ds_client, buffer_u32, input_sequence);
-	dsnet_write(ds_client, buffer_s16, (tosend_forward/input_frames)*100);
-	dsnet_write(ds_client, buffer_s16, (tosend_side/input_frames)*100);
-	dsnet_write(ds_client, buffer_s16, (tosend_up/input_frames)*100);
+	dsnet_write(ds_client, buffer_s16, tosend_forward);
+	dsnet_write(ds_client, buffer_s16, tosend_side);
+	dsnet_write(ds_client, buffer_s16, tosend_up);
 	dsnet_write(ds_client, buffer_u8, tosend_actions);
 	dsnet_send(ds_client);
-	
+
 	tosend_msec_duration = 0;
 	tosend_forward = 0;
 	tosend_side = 0;
