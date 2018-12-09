@@ -15,11 +15,14 @@ tosend_side += side*msec_duration;
 tosend_up += up*msec_duration;
 tosend_actions = 0;
 
+
 var input_packet = [current_time, input_sequence, forward*msec_duration, side*msec_duration, up*msec_duration, actions];
 ds_list_add(pending_inputs, input_packet);
 
-with (obj_example_dstick_player) {
-	applyInput([input_packet[2], input_packet[3], input_packet[4], input_packet[5]]);
+if (obj_example_dstick_main.input_prediction) {
+	with (obj_example_dstick_player) {
+		applyInput([input_packet[2], input_packet[3], input_packet[4], input_packet[5]]);
+	}
 }
 
 if (input_timer > 1/inputrate) {
