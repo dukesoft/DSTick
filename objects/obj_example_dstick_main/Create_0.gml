@@ -29,5 +29,5 @@ randomize();
 
 initInput();
 
-input_prediction = false;
-server_reconcilliation = false;
+input_prediction = true;
+server_reconcilliation = true;
