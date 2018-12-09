@@ -97,7 +97,6 @@ while (false != msg) {
 			otherp_x = msg[e_state_packet.x];
 			otherp_y = msg[e_state_packet.y];
 		}
-		
 	}
 	
 	msg = dst_receive(dst_in_queue);

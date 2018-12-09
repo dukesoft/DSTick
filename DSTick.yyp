@@ -855,6 +855,14 @@
             }
         },
         {
+            "Key": "78eb65d8-c27b-43a5-ba52-71076b49ad06",
+            "Value": {
+                "id": "4a51421a-d17e-4939-85c9-f884bb54f1ea",
+                "resourcePath": "objects\\obj_example_dstick_otherplayer\\obj_example_dstick_otherplayer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7981ce05-fa5c-4e45-bef4-00c677c3771a",
             "Value": {
                 "id": "067aa84b-1ca6-483b-a08f-415e94bd5be6",

@@ -21,6 +21,12 @@ enum dst_netmsg {
 	s_delta, //Server sends a delta
 }
 
+enum dst_delta {
+	playerpos,
+	playerjoin,
+	playerleave,
+}
+
 //Now for some generic game settings
 player_speed = 4; //4*room_speed pixels per frame (so usually 4*60 per second)
 
@@ -31,3 +37,4 @@ initInput();
 
 input_prediction = true;
 server_reconcilliation = true;
+entity_interpolation = true;

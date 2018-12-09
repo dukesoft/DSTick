@@ -31,3 +31,4 @@ netlog2 = surface_create(window_get_width(), netlog_height);
 netlog_frame_width = 5;
 netlog_max_width = window_get_width()/netlog_frame_width;
 
+prepared_tick = ds_list_create(); //A random list of items to be added to next delta
