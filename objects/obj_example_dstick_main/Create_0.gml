@@ -39,7 +39,7 @@ input_prediction = true;
 server_reconcilliation = true;
 entity_interpolation = true;
 
-input_rate = 16;
-tick_rate = 32;
+input_rate = 8;
+tick_rate = 16;
 
 room_speed = 60;

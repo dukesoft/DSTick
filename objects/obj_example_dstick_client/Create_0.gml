@@ -1,5 +1,5 @@
-server_ip = "145.131.24.156"; //it hurts when IP
-//server_ip = "127.0.0.1"; //it hurts when IP
+//server_ip = "145.131.24.156"; //it hurts when IP
+server_ip = "127.0.0.1"; //it hurts when IP
 server_port = 8000;
 
 username = "User " + string(round(random(8999)+1000));
