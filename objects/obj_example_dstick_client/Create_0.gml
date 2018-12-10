@@ -1,5 +1,5 @@
-server_ip = "145.131.24.156"; //it hurts when IP
-//server_ip = "127.0.0.1"; //it hurts when IP
+//server_ip = "145.131.24.156"; //it hurts when IP
+server_ip = "127.0.0.1"; //it hurts when IP
 server_port = 8000;
 
 username = "User " + string(round(random(8999)+1000));
@@ -40,7 +40,16 @@ tosend_side = 0;
 tosend_up = 0;
 tosend_actions = 0;
 
-msec_interp = 1500;
+msec_interp = 2000;
 server_tickrate = 1;
 
 pending_inputs = ds_list_create();
+//Max interpolation time (e.g. 1000msec/1000 * 128 tick (high tickrate) = max amount of ticks to store)
+tick_queue = ds_list_create(); //[TICK, TIME, BUFFER]
+
+tick_timer = 0;
+
+tick_delay = 0;
+current_processing_tick = 0;
+last_received_tick = 0;
+time_last_received_tick = current_time;

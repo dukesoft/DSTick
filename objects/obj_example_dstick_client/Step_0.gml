@@ -4,6 +4,8 @@ if (!ds_client.connected) {
 }
 
 input_timer += delta_time/1000000;
+tick_timer += delta_time/1000000;
+
 input_frames ++;
 //window_set_caption("FPS: " + string(fps) + " - REAL: " + string(fps_real))
 //show_debug_message("fps: "+string(fps_timer) + " / " + string((1/server_fps)));
@@ -51,4 +53,24 @@ if (input_timer > 1/obj_example_dstick_main.input_rate) {
 
 	input_timer = 0;
 	input_frames = 0;
+}
+
+/// Now to process ticks
+if (obj_example_dstick_main.tick_delay) {
+	if (tick_timer > 1/server_tickrate) {
+		current_processing_tick++;
+		show_debug_message("Client tick took " + string(tick_timer*1000));
+	
+		for (var i = ds_list_size(tick_queue)-1; i > 0; i--) { //Bottom up
+			var queuedtick = tick_queue[| i];
+			if (queuedtick[0] <= current_processing_tick) {
+				show_debug_message("PROCESSING TICK: " + string(queuedtick[0]) + " delay since receiving: " + string(current_time - queuedtick[1]));
+				dst_process_tick(queuedtick[2], queuedtick[0]);
+				buffer_delete(queuedtick[2]);
+				ds_list_delete(tick_queue, i);
+			}
+		}
+
+		tick_timer = 0;
+	}
 }

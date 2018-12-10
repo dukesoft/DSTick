@@ -9,8 +9,13 @@ draw_text(300, 55,
 "Inputrate: " + string(obj_example_dstick_main.input_rate) 
 + "\n" + "Input Sequence: " + string(input_sequence)
 + "\n" + "TTNT: " + string((1/obj_example_dstick_main.input_rate) - input_timer)
+
 + "\n" + "msec_interp: " + string(msec_interp) + " ( "+string(server_tickrate*(msec_interp/1000))+" ticks)"
 + "\n" + "Unprocessed inputs: " + string(ds_list_size(pending_inputs))
+
++ "\n" + "Last received tick: " + string(last_received_tick)
++ "\n" + "Current processed tick: " + string(current_processing_tick)
++ "\n" + "Tick queue size: " + string(ds_list_size(tick_queue))
 
 + "\n" + "NET IN: " + string(ds_client.packets_received_last_second) + "p/s @ " + string(ds_client.bytes_received_last_second/1024) + "kb/s" 
 + "\n" + "   OUT: " + string(ds_client.packets_sent_last_second) + "p/s @ " + string(ds_client.bytes_sent_last_second/1024) + "kb/s" 

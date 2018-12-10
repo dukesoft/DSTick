@@ -16,7 +16,7 @@ enum dst_netmsg {
 	c_info, //Client sends info to server
 	s_main, //Server sends info to client
 	
-	// Since DSNET is setup very abstract, (e.g. multi-level servers etc.) we setup clients joining and hosting on our own
+	// Since DSNET is setup very abstract, (e.g. multi-level servers etc.) we setup clients joining and hosting on our own, using delta's
 	c_input, //Client sends its input
 	s_delta, //Server sends a delta
 }
@@ -39,7 +39,12 @@ input_prediction = true;
 server_reconcilliation = true;
 entity_interpolation = true;
 
-input_rate = 16;
-tick_rate = 32;
+tick_delay = true;
+
+input_rate = 8;
+tick_rate = 16;
+
+max_delta_size = 1500; //Bytes
+max_interpolation_time = 4000; //Milliseconds (in case is 128 tick, 512 ticks)
 
 room_speed = 60;
