@@ -1,3 +1,8 @@
+if (!ds_client.connected) {
+	//Skip if we're not connected yet
+	return 0;
+}
+
 input_timer += delta_time/1000000;
 input_frames ++;
 //window_set_caption("FPS: " + string(fps) + " - REAL: " + string(fps_real))
