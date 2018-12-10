@@ -52,6 +52,7 @@ while (msginfo != 254) { //end of packet
 				}
 				
 				if (obj_example_dstick_main.entity_interpolation) {
+					show_debug_message("PROC TICK ["+string(servertick)+"] WITH POS ["+string(xx)+","+string(yy)+"]");
 					ds_list_add(rplayer.positions, [current_time, xx, yy]);
 				} else {
 					rplayer.x = xx;

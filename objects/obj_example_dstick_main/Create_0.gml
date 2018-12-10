@@ -42,7 +42,7 @@ entity_interpolation = true;
 tick_delay = true;
 
 input_rate = 8;
-tick_rate = 16;
+tick_rate = 8;
 
 max_delta_size = 1500; //Bytes
 max_interpolation_time = 4000; //Milliseconds (in case is 128 tick, 512 ticks)
