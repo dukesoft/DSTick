@@ -17,3 +17,6 @@ if (ds_client != noone) {
 ds_map_destroy(clients);
 
 debug_log("[EXAMPLE] [CLIENT] Client destroyed");
+
+ds_list_destroy(pending_inputs);
+ds_list_destroy(tick_queue);

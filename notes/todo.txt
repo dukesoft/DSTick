@@ -1,0 +1,8 @@
+If you want a lower input rate and a higher tick rate (e.g. 8/16) you will need to interpolate / simulate the steps on the server, so its not coming in 1/2 times (jittery!)
+
+
+e.g. input = 8
+server sets instantly
+server sends 2 ticks on the same position
+
+Should be one in the middle :)
