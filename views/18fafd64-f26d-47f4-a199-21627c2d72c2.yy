@@ -1,11 +1,11 @@
 {
-    "id": "094bcd82-e145-46d0-8bb9-460881600843",
+    "id": "18fafd64-f26d-47f4-a199-21627c2d72c2",
     "modelName": "GMFolder",
     "mvc": "1.1",
-    "name": "094bcd82-e145-46d0-8bb9-460881600843",
+    "name": "18fafd64-f26d-47f4-a199-21627c2d72c2",
     "children": [
-        "145c70a2-2fda-48f2-ae9c-519cb541ef38",
-        "393dcc58-d37a-4900-b39a-1f3984ef4dff"
+        "593fca24-c614-44a3-b01c-9c025dab6754",
+        "51a133c8-ecc0-41d3-bd63-6541c5aa2901"
     ],
     "filterType": "GMScript",
     "folderName": "dsnet events",

@@ -16,4 +16,7 @@ draw_text(10, 55,
 + "\n" + "Tick: " + string(tick)
 + "\n" + "TTNT: " + string((1/tickrate) - tick_timer)
 
++ "\n" + "NET IN: " + string(server.packets_received_last_second) + "p/s @ " + string(server.bytes_received_last_second/1024) + "kb/s" 
++ "\n" + "   OUT: " + string(server.packets_sent_last_second) + "p/s @ " + string(server.bytes_sent_last_second/1024) + "kb/s" 
+
 );

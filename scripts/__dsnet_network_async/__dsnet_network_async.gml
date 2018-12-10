@@ -24,6 +24,18 @@ if (obj == undefined) {
 	if debug debug_log("DSNET: Socket handler for socket " + string(inboundSocket) + " not found!");
 	return false;
 }
+
+if (type == network_type_data) {
+	var packageObj = obj;
+	if (obj.object_index == __obj_dsnet_connected_client) {
+		packageObj = obj.parent;
+	}
+	packageObj.packets_received++;
+	packageObj._packets_received_s++;
+	packageObj.bytes_received += size;
+	packageObj._bytes_received_s += size;
+}
+
 switch (type) {
     case network_type_connect:
 	case network_type_non_blocking_connect:
@@ -59,7 +71,7 @@ switch (type) {
 		#region Basic packet checks
 		var minSize = 1 + buffer_sizeof(custom_id_buffer_type); //1 byte for first id
 		
-		if (buffer == undefined) {
+		if (buffer == undefined) { //Buffer is undefined, so probably a JS buffer coming in.
 			buffer = obj.receive_buffer;
 			buffer_seek(buffer, buffer_seek_start, 0);
 		}

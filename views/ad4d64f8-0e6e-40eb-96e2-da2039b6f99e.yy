@@ -1,8 +1,8 @@
 {
-    "id": "466d45a8-3f68-4b68-9a03-f321c5f1b878",
+    "id": "ad4d64f8-0e6e-40eb-96e2-da2039b6f99e",
     "modelName": "GMFolder",
     "mvc": "1.1",
-    "name": "466d45a8-3f68-4b68-9a03-f321c5f1b878",
+    "name": "ad4d64f8-0e6e-40eb-96e2-da2039b6f99e",
     "children": [
         "0ca0a3a1-3308-44f8-8d32-d938729eb6ac",
         "7e960f90-6bbe-4307-8914-fd91fc67e9a3",
@@ -13,9 +13,10 @@
         "e49770f5-0b8f-4722-b14e-13722d12603e",
         "53bea678-7bf8-4383-8b59-1a0916822a51",
         "006b5104-2d2f-4578-8b42-4a0b5628ea06",
-        "648e1fcd-4138-4f00-aa52-abfcdcfebcb4",
-        "fc993a82-4105-4f5a-8368-cedf0069fccb",
-        "8aa1d89d-f0d4-46cb-a9e3-32958fea5b34"
+        "3ddcd0db-3f5b-4ef7-a5bb-ceceee354eb1",
+        "2341cfa0-8e77-4bec-9851-dfff38543bc7",
+        "1b4075d3-fef3-4007-b5fa-8c7b2f4fcbd6",
+        "859b6975-9893-4559-b969-cc73e7282501"
     ],
     "filterType": "GMScript",
     "folderName": "internals",

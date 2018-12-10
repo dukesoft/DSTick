@@ -29,7 +29,13 @@ function dsnet_js_connect(host, port, receive_buffer) {
     __dsnet__connections[mySocket] = connection;
 
     // Let us open a web socket
-    connection.ws_handle = new WebSocket('ws://'+host+':'+port, 'dsnet');
+    let wsProtocol = 'ws:';
+
+    //if (location.protocol === "https:") {
+    //    let wsProtocol = 'wss:';
+    //}
+
+    connection.ws_handle = new WebSocket(wsProtocol + '//'+host+':'+port, 'dsnet');
 
     connection.ws_handle.onopen = function() {
         connection.connected = true;
@@ -46,7 +52,7 @@ function dsnet_js_connect(host, port, receive_buffer) {
             for (let i = 0; i < resultBuffer.byteLength; i++) {
                 connection.receive_buffer_view[i] = readBuffer[i];
             }
-            gml_Script_gmcallback_dsnet_data(-1, -1, mySocket,mySocket,  connection.receive_buffer.byteLength);
+            gml_Script_gmcallback_dsnet_data(-1, -1, mySocket,mySocket,  resultBuffer.byteLength);
         };
         fileReader.readAsArrayBuffer(evt.data);
     };

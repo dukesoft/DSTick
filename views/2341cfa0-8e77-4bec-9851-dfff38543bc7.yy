@@ -1,13 +1,13 @@
 {
-    "id": "fc993a82-4105-4f5a-8368-cedf0069fccb",
+    "id": "2341cfa0-8e77-4bec-9851-dfff38543bc7",
     "modelName": "GMFolder",
     "mvc": "1.1",
-    "name": "fc993a82-4105-4f5a-8368-cedf0069fccb",
+    "name": "2341cfa0-8e77-4bec-9851-dfff38543bc7",
     "children": [
         "17f9f5be-8508-45cb-9f12-2a9feedd2733",
         "fa41d688-9852-4b01-bbe9-6a6d0e11c1bd",
         "fc2d33dc-35e7-4a5d-b7a0-0c1e450844bb",
-        "b3ef0973-7035-4200-81cf-f73a9f9a4012"
+        "a88e5533-0565-455b-8d4d-703be9192184"
     ],
     "filterType": "GMScript",
     "folderName": "websocket",
