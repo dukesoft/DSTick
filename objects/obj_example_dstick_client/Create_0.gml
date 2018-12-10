@@ -27,7 +27,6 @@ ds_client = dsnet_client_create(
 dsnet_msghandle(dst_netmsg.s_main, dst_cr_main);
 dsnet_msghandle(dst_netmsg.s_delta, dst_cr_delta);
 
-inputrate = 2;
 input_timer = 0;
 input_frames = 0;
 input_sequence = 0;
@@ -44,6 +43,7 @@ tosend_side = 0;
 tosend_up = 0;
 tosend_actions = 0;
 
-msec_interp = 0;
+msec_interp = 1500;
+server_tickrate = 1;
 
 pending_inputs = ds_list_create();

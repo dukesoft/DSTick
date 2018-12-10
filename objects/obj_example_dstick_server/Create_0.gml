@@ -21,7 +21,6 @@ if (server == noone) {
 dsnet_msghandle(dst_netmsg.c_info, dst_sr_info);
 dsnet_msghandle(dst_netmsg.c_input, dst_sr_input);
 
-tickrate = 1;
 tick = 0;
 tick_timer = 0;
 

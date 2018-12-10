@@ -4,7 +4,7 @@
 var buffer = argument0;
 
 mp_id = buffer_read(buffer, buffer_u16);
-tickrate = buffer_read(buffer, buffer_u8);
+server_tickrate = buffer_read(buffer, buffer_u8);
 tick = buffer_read(buffer, buffer_u32);
 
 // Now create our own player

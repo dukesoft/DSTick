@@ -38,3 +38,8 @@ initInput();
 input_prediction = true;
 server_reconcilliation = true;
 entity_interpolation = true;
+
+input_rate = 16;
+tick_rate = 32;
+
+room_speed = 60;

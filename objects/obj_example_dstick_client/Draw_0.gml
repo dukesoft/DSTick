@@ -5,10 +5,10 @@ if (!connected) {
 draw_set_halign(fa_left);
 draw_set_color(c_white);
 draw_text(300, 55, 
-"Inputrate: " + string(inputrate) 
+"Inputrate: " + string(obj_example_dstick_main.input_rate) 
 + "\n" + "Input Sequence: " + string(input_sequence)
-+ "\n" + "TTNT: " + string((1/inputrate) - input_timer)
-+ "\n" + "msec_interp: " + string(msec_interp)
++ "\n" + "TTNT: " + string((1/obj_example_dstick_main.input_rate) - input_timer)
++ "\n" + "msec_interp: " + string(msec_interp) + " ( "+string(server_tickrate*(msec_interp/1000))+" ticks)"
 + "\n" + "Unprocessed inputs: " + string(ds_list_size(pending_inputs))
 
 + "\n" + "NET IN: " + string(ds_client.packets_received_last_second) + "p/s @ " + string(ds_client.bytes_received_last_second/1024) + "kb/s" 

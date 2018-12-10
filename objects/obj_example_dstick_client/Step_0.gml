@@ -15,7 +15,6 @@ tosend_side += side*msec_duration;
 tosend_up += up*msec_duration;
 tosend_actions = 0;
 
-
 var input_packet = [current_time, input_sequence, forward*msec_duration, side*msec_duration, up*msec_duration, actions];
 ds_list_add(pending_inputs, input_packet);
 
@@ -25,7 +24,7 @@ if (obj_example_dstick_main.input_prediction) {
 	}
 }
 
-if (input_timer > 1/inputrate) {
+if (input_timer > 1/obj_example_dstick_main.input_rate) {
 
 	dsnet_create_packet(ds_client, dst_netmsg.c_input);
 	dsnet_write(ds_client, buffer_u16, msec_interp);
